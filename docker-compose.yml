@@ -295,27 +295,27 @@ services:
 # Device Services
 #################################################################
 
-  device-virtual:
-    image: edgexfoundry/docker-device-virtual-go-arm64:1.0.0
-    ports:
-    - "49990:49990"
-    container_name: edgex-device-virtual
-    hostname: edgex-device-virtual
-    networks:
-      edgex-network:
-        aliases:
-        - edgex-device-virtual
-    volumes:
-    - db-data:/data/db
-    - log-data:/edgex/logs
-    - consul-config:/consul/config
-    - consul-data:/consul/data
-    depends_on:
-    - data
-    - command
+#  device-virtual:
+#    image: edgexfoundry/docker-device-virtual-go-arm64:1.0.0
+##    ports:
+ #   - "49990:49990"
+ #   container_name: edgex-device-virtual
+#    hostname: edgex-device-virtual
+#    networks:
+#      edgex-network:
+#        aliases:
+##        - edgex-device-virtual
+#   volumes:
+#    - db-data:/data/db
+#    - log-data:/edgex/logs
+#    - consul-config:/consul/config
+#    - consul-data:/consul/data
+#    depends_on:
+#    - data
+#    - command
 
   device-modbus:
-    image: kovorotniy/modbus-arm64:v1
+    image: kovorotniy/modbus-arm64:v2
     ports:
       - "49999:49999"
     container_name: edgex-device-modbus
@@ -329,8 +329,8 @@ services:
       - log-data:/edgex/logs
       - consul-config:/consul/config
       - consul-data:/consul/data
-     # - ./configuration.toml:/res/docker/configuration.toml
-     # - ./modbus.test.device.profile.yml:/res/docker/modbus.test.device.profile.yml
+      - ./configuration.toml:/res/docker/configuration.toml
+      - ./modbus.test.device.profile.yml:/res/docker/modbus.test.device.profile.yml
     depends_on:
       - data
       - command
