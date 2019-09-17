@@ -29,6 +29,37 @@ Prerequisites
  
  - UI will be available at `your-ip:4000`, there you can monitor all devices and services.
  
+Customizing
+-----------
+
+- For using other profiles and configurations, change the paths of them.
+
+```yaml
+
+  device-modbus:
+    image: device-modbus
+    ports:
+      - "49999:49999"
+    container_name: edgex-device-modbus
+    hostname: edgex-device-modbus
+    networks:
+      edgex-network:
+        aliases:
+            - edgex-device-modbus
+    volumes:
+      - db-data:/data/db
+      - log-data:/edgex/logs
+      - consul-config:/consul/config
+      - consul-data:/consul/data
+      - ./configuration.toml:/res/docker/configuration.toml
+      - ./modbus.test.device.profile.yml:/res/docker/modbus.test.device.profile.yml
+    depends_on:
+      - data
+      - command
+```
+
+It's necessary to modified the last two rows in volumes section. 
+ 
 
  
  
