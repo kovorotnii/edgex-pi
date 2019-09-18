@@ -1,4 +1,4 @@
-name: "Test.Device.Modbus.Profile"
+name: "Test.Device.Modbus.Profile-RPI"
 manufacturer: "Some test manufacturer"
 model: "Cool model"
 labels:
