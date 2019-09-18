@@ -8,31 +8,41 @@ Components
  
  - MQTT-connector, which allows you to establish communication with [Rightech IoT cloud sandbox](https://sandbox.rightech.io/)
  
-
+Useful information
+------------------
+ - Firstly, if you are not familliar with Edgex services it's worth to learn about them.
+ 
+ - Secondly, for the first steps in Edgex services, it's recommended to use PC or laptop.
+ 
+ - For better experience on Raspberry use 16 gb sd card. Create swap file because lack of RAM.
+ 
+ ```shell
+sudo touch /tmp/theswap
+sudo chmod 600 /tmp/theswap
+sudo dd if=/dev/zero of=/tmp/theswap bs=1M count=2048
+sudo mkswap /tmp/theswap
+sudo swapon /tmp/theswap
+ ```
+ 
 Prerequisites
 -------------
- - For better experience use 16 gb sd card.
   
- - Use Ubuntu 18.04 Server for arm64. Link: https://ubuntu.com/download/server/arm.
+ - Use Ubuntu 18.04 Server for arm64. Link: https://ubuntu.com/download/iot/raspberry-pi-2-3
  
  - Install docker, docker-compose.
  
  - You can use this modbus emulator. Link: http://modbuspal.sourceforge.net/.
  
- - The main instruction how to use these services is [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial).
+ - The main instruction how to use these services is [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial). Don't forget to read through this instruction profile.
  
- - Execute `docker pull kovorotniy/mqtt-connector-arm64:v1` for pulling mqtt-connector. Use it for establishing communication between cloud and modbus emulator.
- 
- - Execute `docker pull kovorotniy/modbus-arm64:v2` for pulling modbus-service.
- 
- - Finally, execute `docker-compose up -d` for launching all services. 
+ - Execute `docker-compose up -d` for launching all services. 
  
  - UI will be available at `your-ip:4000`, there you can monitor all devices and services.
  
 Customizing
 -----------
 
-- For using other profiles and configurations, change the paths of them.
+- Modbus profile and configuration is hardcoded. After clonning repo, modify [modbus profile](./modbus.test.device.profile.yml) and [configuration](./configuration.toml) for own purposes. 
 
 ```yaml
 
@@ -52,13 +62,11 @@ Customizing
       - consul-config:/consul/config
       - consul-data:/consul/data
       - ./configuration.toml:/res/docker/configuration.toml
-      - ./modbus.test.device.profile.yml:/res/docker/modbus.test.device.profile.yml
+      - ./modbus.test.device.profile.yml:/res/modbus.test.device.profile.yml
     depends_on:
       - data
       - command
 ```
-
-It's necessary to modified the last two rows in volumes section. 
  
 
  
