@@ -56,16 +56,17 @@ LogLevel = "INFO"
 
 # Pre-define Devices
 [[DeviceList]]
-  Name = "Modbus-TCP-test-device-1000"
-  Profile = "Test.Device.Modbus.Profile"
+  Name = "Modbus-TCP-test-device-RPI"
+  Profile = "Test.Device.Modbus.Profile-RPI"
   Description = "RPI test"
   labels = [ "Air conditioner","modbus TCP" ]
   [DeviceList.Protocols]
     [DeviceList.Protocols.modbus-tcp]
-       Address = "192.168.1.49"
+       Address = "192.168.1.83"
        Port = "502"
        UnitID = "1"
   [[DeviceList.AutoEvents]]
     Frequency = "20s"
     OnChange = false
     Resource = "Switch"
+
