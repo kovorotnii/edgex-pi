@@ -10,9 +10,9 @@ Components
  
 Useful information
 ------------------
- - Firstly, if you are not familliar with Edgex services it's worth to learn about them.
+ - Firstly, if you are not familliar with the Edgex services it's worth to learn about them.
  
- - Secondly, for the first steps in Edgex services, it's recommended to use PC or laptop.
+ - Secondly, for the first steps in the Edgex services, it's recommended to use PC or laptop.
  
  - For better experience on Raspberry use 16 gb sd card. Create swap file because lack of RAM.
  
@@ -33,7 +33,7 @@ Prerequisites
  
  - You can use this modbus emulator. Link: http://modbuspal.sourceforge.net/.
  
- - The main instruction how to use these services is [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial). Don't forget to read through this instruction profile.
+ - The main instruction how to use these services is [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial). Don't forget to read through this instruction.
  
  - Execute `docker-compose up -d` for launching all services. 
  
