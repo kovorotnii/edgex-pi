@@ -17,11 +17,11 @@ Prerequisites
  
  - Install docker, docker-compose.
  
- - You can use modbus emulator. Link: http://modbuspal.sourceforge.net/.
+ - You can use this modbus emulator. Link: http://modbuspal.sourceforge.net/.
  
- - The main instruction how to use these services are [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial).
+ - The main instruction how to use these services is [there](https://github.com/kovorotniy/edgex-modbus-ric-tutorial).
  
- - Execute `docker pull kovorotniy/mqtt-connector-arm64:v1` for pulling mqtt-connector. Use it for establishing communication bentween cloud and modbus emulator.
+ - Execute `docker pull kovorotniy/mqtt-connector-arm64:v1` for pulling mqtt-connector. Use it for establishing communication between cloud and modbus emulator.
  
  - Execute `docker pull kovorotniy/modbus-arm64:v2` for pulling modbus-service.
  
