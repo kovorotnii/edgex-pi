@@ -315,7 +315,7 @@ services:
 #    - command
 
   device-modbus:
-    image: kovorotniy/modbus-arm64:v2
+    image: kovorotniy/modbus-arm64:v1
     ports:
       - "49999:49999"
     container_name: edgex-device-modbus
@@ -330,7 +330,7 @@ services:
       - consul-config:/consul/config
       - consul-data:/consul/data
       - ./configuration.toml:/res/docker/configuration.toml
-      - ./modbus.test.device.profile.yml:/res/docker/modbus.test.device.profile.yml
+      - ./modbus.test.device.profile.yml:/res/modbus.test.device.profile.yml
     depends_on:
       - data
       - command
